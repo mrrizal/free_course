@@ -11,7 +11,7 @@
 		<?php 
 			include('php/db.php'); 
 
-			if(isset($_GET['article']) & $_GET['article'].trim() != '') {
+			if(isset($_GET['article']) & $_GET['article'] != '') {
 				$article = "SELECT * FROM `article` WHERE `id`=".$_GET['article'];
 			}
 			else {

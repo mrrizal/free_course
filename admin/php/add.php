@@ -7,7 +7,7 @@ if (!session_id()) @session_start();
 $msg = new \Plasticbrain\FlashMessages\FlashMessages();
 
 if(isset($_POST['title']) & isset($_POST['content'])) {
-	if($_POST['title'].trim() == '' or $_POST['content'].trim() == '' ) {
+	if($_POST['title'] == '' or $_POST['content'] == '' ) {
 		$msg->error('Data tidak lengkap!', '../form_article.php'); 
 			
 	}
@@ -21,5 +21,7 @@ if(isset($_POST['title']) & isset($_POST['content'])) {
 		$msg->success('Tambah data berhasil.', '../form_article.php'); 
 	}
 }
-
+else {
+	$msg->error('Data tidak lengkap!', '../form_article.php'); 
+}
 ?>

@@ -5,11 +5,10 @@ require 'vendor/plasticbrain/php-flash-messages/src/FlashMessages.php';
 
 if (!session_id()) @session_start();
 $msg = new \Plasticbrain\FlashMessages\FlashMessages();
-print_r($_POST);
 
 if(isset($_POST['title']) & isset($_POST['content']) & isset($_POST['id'])) {
-	if($_POST['title'].trim() == '' or $_POST['content'].trim() == '' ) {
-		$msg->error('Data tidak lengkap!', '../form_article.php'); 	
+	if($_POST['title'] == '' or $_POST['content'] == '' ) {
+		$msg->error('Data tidak lengkap!', '../form_article.php?id='.$_POST['id']); 	
 	}
 	else {
 		$sql_update = "UPDATE `article` SET `title` = ?, `content` = ? WHERE `id` = ?";
@@ -21,6 +20,9 @@ if(isset($_POST['title']) & isset($_POST['content']) & isset($_POST['id'])) {
 
 		$msg->success('Data berhasil di update', '../form_article.php?id='.$_POST['id']);
 	}
+}
+else {
+	$msg->error('Data tidak lengkap!', '../form_article.php?id='.$_POST['id']); 	
 }
 
 

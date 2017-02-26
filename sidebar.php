@@ -1,6 +1,6 @@
 		<?php
 		include('php/db.php');
-		$article = "SELECT id, title, LEFT(content, 100) as description FROM `article` ORDER BY `id`";
+		$article = "SELECT id, title, LEFT(content, 150) as description FROM `article` ORDER BY `id`";
 		$query = $pdo->prepare($article);
 		$query->execute();
 		$row = $query->fetchAll();

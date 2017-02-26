@@ -6,7 +6,7 @@ require 'vendor/plasticbrain/php-flash-messages/src/FlashMessages.php';
 if (!session_id()) @session_start();
 $msg = new \Plasticbrain\FlashMessages\FlashMessages();
 
-if(isset($_GET['id']) & $_GET['id'].trim()!='') {
+if(isset($_GET['id']) & $_GET['id'] !='') {
 	$id_artikel = $_GET['id'];
 	$sql_select_artikel = "SELECT * FROM `article` WHERE `id` = ?";
 	$query = $pdo->prepare($sql_select_artikel);

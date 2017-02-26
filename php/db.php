@@ -1,8 +1,14 @@
 <?php
+// $hostname = 'localhost';
+// $dbname = 'rizalubu_free_course';
+// $username = 'rizalubu_rizal';
+// $password = 'rizalganteng123';
+
 $hostname = 'localhost';
 $dbname = 'free_course';
 $username = 'root';
 $password = 'root';
+
 
 try {
     $pdo = new PDO('mysql:host='.$hostname.';dbname='.$dbname, $username, $password, array(
