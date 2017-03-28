@@ -86,5 +86,10 @@ class App
 			return false;
 		}
 	}
+
+	public function loadFlashMessages() {
+		$parent =  realpath(__DIR__ . '/..');
+		require $parent.'/lib/vendor/plasticbrain/php-flash-messages/src/FlashMessages.php';
+	}
 	
 }
