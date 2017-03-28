@@ -31,7 +31,8 @@
             ?>
             <div class="sidebar">
                 <div class="sidebar_item">
-                    <h3><?php echo $row['title']; ?></h3>
+                    <?php $title = str_replace(' ', '-', $row['title']); ?>
+                    <a href="<?php echo BASE_URL.'index.php/page/artikel/'.$title; ?>"><h3><?php echo $row['title']; ?></h3></a>
                     <p><?php echo $string; ?></p>         
                 </div><!--close sidebar_item--> 
             </div><!--close sidebar-->  

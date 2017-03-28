@@ -13,9 +13,9 @@
 		
           <div id="menu_items">
 	        <ul id="menu">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><a href="<?php echo BASE_URL.'index.php/page'; ?>">Home</a></li>
+              <li><a href="<?php echo BASE_URL.'index.php/page/about'; ?>">About</a></li>
+              <li><a href="<?php echo BASE_URL.'index.php/page/contact_us'; ?>">Contact Us</a></li>
             </ul>
           </div><!--close menu-->
 		

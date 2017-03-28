@@ -15,12 +15,12 @@ class ArtikelModel
         return $row;
     }
 
-    public static function one($id)
+    public static function one($title)
     {
-        $id = filter_var($id, FILTER_VALIDATE_INT);
-        $sql = "SELECT * FROM `article` WHERE `id` = ?";
+        // $title = filter_var($title, FILTER_VALIDATE_INT);
+        $sql = "SELECT * FROM `article` WHERE `title` = ?";
         $q = Database::$pdo->prepare($sql);
-        $q->execute(array($id));
+        $q->execute(array($title));
         $row = $q->fetch();
         return $row;
     }

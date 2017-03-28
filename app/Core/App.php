@@ -29,30 +29,30 @@ class App
 
 	public function parseUrl()
 	{
-		if (!isset($_GET['url']))
+		if (!isset($_SERVER['REQUEST_URI']))
 		{
 			$this->loadIndex();
 		} else {
-			$url = filter_var($_GET['url'], FILTER_SANITIZE_URL);
+			$url = filter_var($_SERVER['REQUEST_URI'], FILTER_SANITIZE_URL);
 			$url = trim($url, '/');
 			$url = explode('/', $url);
 			
-			$class = '\Mvc\Controller\\' . ucwords($url[0]) . 'Controller';
+			$class = '\Mvc\Controller\\' . ucwords($url[3]) . 'Controller';
 
 			if (!class_exists($class))
 			{
 				$this->loadNotFound();
 			} else {
-				$controller = new $class;
-				
-				if (!isset($url[1]))
+				$controller = new $class;	
+				if (!isset($url[4]))
 				{
 					$action = 'indexAction';
 				} else {
-					$action = $url[1].'Action';
+					$action = $url[4].'Action';
 				}
 				if (!method_exists($controller, $action))
 				{
+					// echo $action;
 					$this->loadNotFound();
 				} else {
 					$controller->{$action}();

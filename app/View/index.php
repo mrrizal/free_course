@@ -7,6 +7,7 @@
 			<?php 
 				foreach ($artikel as $row) {
 					$string = $row['content'];
+					$title = str_replace(' ', '-', $row['title']);
 					if (strlen($string) > 500) {
 
 					    // truncate string
@@ -19,7 +20,7 @@
 					<div class="content_container">
 					    <p><?php echo $string; ?></p>
 					  	<div class="button_small">
-					      <a href="#">Read more</a>
+					      <a href="<?php echo BASE_URL.'index.php/page/artikel/'.$title; ?>">Read more</a>
 					    </div><!--close button_small-->
 			  		</div><!--close content_container-->
 				<?php
